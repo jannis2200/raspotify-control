@@ -9,29 +9,46 @@
 
     <body class="container">
         <br>
+        
         <?php
 
             if(isset($_POST['lauter'])){
                 $output = shell_exec('sudo amixer sset PCM 500+');
-                echo "Lautstärke erhöht!";
+                echo "<div class=\"alert alert-success\"> Lautstärke erhöht!</div>";
                 echo "<strong>Neue aMixer-Settings:</strong><br><code>";
                 echo "$output</code>";
             }
 
             if(isset($_POST['leiser'])){
                 $output = shell_exec('sudo amixer sset PCM 500-');
-                echo "Lautstärke gesenkt!";
+                echo "<div class=\"alert alert-success\">Lautstärke gesenkt!</div>";
                 echo "<strong>Neue aMixer-Settings:</strong><br><code>";
                 echo "$output</code>";
             }
 
             if(isset($_POST['servicerestart'])){
-                $restart = shell_exec('sudo systemctl restart raspotify');
-                echo "<h2>Service neugestartet.</h2>";
+                $restartservice = shell_exec('sudo systemctl restart raspotify');
+                echo "<div class=\"alert alert-success\">Service neugestartet.</div>";
                 echo "<strong>Ausgabe:</strong><br><code>";
-                echo "$restart</code>";
+                echo "$restartservice</code>";
             }
 
+            if(isset($_POST['pi-restart'])){
+                
+                echo "<div class=\"alert alert-danger\">Sicher neustarten?";
+                ?>
+                
+                <form action="command.php" method="post">
+                    <input type="submit" class="btn btn-danger" name="pi-restart-yes" value="Ja, sicher!"></input>
+                </form>
+                </div>
+                <?php
+            }
+
+            if(isset($_POST['pi-restart-yes'])){
+                shell_exec('sudo shutdown -r 10');
+                echo "<div class=\"alert alert-success\">Der Pi wird in 10 Sekunden neu gestartet! Bitte Ton-Anlage wegen lautem Geräusch stumm schalten / leise drehen!</div>";
+            }
             
         ?>
         <br>
