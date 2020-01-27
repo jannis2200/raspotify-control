@@ -49,6 +49,23 @@
                 shell_exec('sudo shutdown -r 10');
                 echo "<div class=\"alert alert-success\">Der Pi wird in 10 Sekunden neu gestartet! Bitte Ton-Anlage wegen lautem Geräusch stumm schalten / leise drehen!</div>";
             }
+
+            if(isset($_POST['pi-stop'])){
+                
+                echo "<div class=\"alert alert-danger\">Sicher herunterfahren?";
+                ?>
+                
+                <form action="command.php" method="post">
+                    <input type="submit" class="btn btn-danger" name="pi-stop-yes" value="Ja, sicher!"></input>
+                </form>
+                </div>
+                <?php
+            }
+
+            if(isset($_POST['pi-stop-yes'])){
+                shell_exec('sudo shutdown -P 10');
+                echo "<div class=\"alert alert-success\">Der Pi wird in 10 Sekunden ausgeschaltet! Bitte Ton-Anlage wegen lautem Geräusch stumm schalten / leise drehen!</div>";
+            }
             
             if(isset($_POST['default'])){
                 $output = shell_exec('sudo amixer sset PCM 0');
