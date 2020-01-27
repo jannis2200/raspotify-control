@@ -34,17 +34,32 @@
         </div>
             
             <h3>Raspotify-Service</h3>
-            <h4>Letzte 5 Status-Ausgaben:</h4><br><code>
+            <h4>Letzte 5 Status-Ausgaben:</h4><code>
             <?php
             $status = shell_exec('sudo journalctl --unit=raspotify.service -n 5 --no-pager');
             echo "$status";
             ?>
             </code><br>
+            <br>
         <div class="btn-group" role="group" aria-label="Raspotify-Service">
             <form action="command.php" method="post">
-            <h4>Service neustarten:</h4><br>
+            <h4>Service neustarten:</h4>
                 <input type="submit" class="btn btn-secondary" name="servicerestart" value="Raspotify neustarten"></input>
             </form>
         </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h3>Pi neustarten</h3>
+                </div>
+                <p class="card-text">Gesamten RaspberryPI neu starten.</p>
+                <form action="command.php" method="post">
+                    <input type="submit" class="btn btn-warning" name="pi-restart" value="Neu starten..."></input>
+                </form>
+            </div>
+        
+        </div>
+        <br>
     </body>
 </html>
