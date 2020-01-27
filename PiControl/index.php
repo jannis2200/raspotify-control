@@ -52,11 +52,20 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
-                    <h3>Pi neustarten</h3>
+                    <h3>Neustart</h3>
                 </div>
-                <p class="card-text">Gesamten RaspberryPI neu starten.</p>
+                <p class="card-text">Gesamten RaspberryPI neu starten</p>
                 <form action="command.php" method="post">
                     <input type="submit" class="btn btn-warning" name="pi-restart" value="Neu starten..."></input>
+                </form>
+            </div>
+            <div class="card-body">
+                <div class="card-title">
+                    <h3>Herunterfahren</h3>
+                </div>
+                <p class="card-text">Gesamten RaspberryPI ausschalten</p>
+                <form action="command.php" method="post">
+                    <input type="submit" class="btn btn-warning" name="pi-stop" value="Ausschalten..."></input>
                 </form>
             </div>
         
