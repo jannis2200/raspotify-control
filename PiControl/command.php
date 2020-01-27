@@ -50,7 +50,7 @@
                 echo "<div class=\"alert alert-success\">Der Pi wird in 10 Sekunden neu gestartet! Bitte Ton-Anlage wegen lautem Geräusch stumm schalten / leise drehen!</div>";
             }
             
-            if(isset($_POST['lauter'])){
+            if(isset($_POST['default'])){
                 $output = shell_exec('sudo amixer sset PCM 0');
                 echo "<div class=\"alert alert-success\"> Lautstärke auf 0 db gesetzt!</div>";
                 echo "<strong>Neue aMixer-Settings:</strong><br><code>";
