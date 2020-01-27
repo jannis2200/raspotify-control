@@ -30,6 +30,7 @@
             <h4>Grundlautstärke:</h4>
                 <input type="submit" class="btn btn-secondary" name="lauter" value="+"></input>
                 <input type="submit" class="btn btn-secondary" name="leiser" value="-"></input>
+                <input type="submit" class="btn btn-secondary" name="default" value="0 db"></input>
             </form>
         </div>
             
